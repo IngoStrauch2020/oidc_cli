@@ -1,0 +1,11 @@
+version: "3.3"
+services:
+  keycloak:
+    image: quay.io/keycloak/keycloak:22.0.5
+    container_name: keycloak_oidc_with_cli
+    environment:
+      KEYCLOAK_ADMIN: admin
+      KEYCLOAK_ADMIN_PASSWORD: admin
+    ports:
+      - "8080:8080"
+    entrypoint: /opt/keycloak/bin/kc.sh start-dev --log-level="INFO,org.apache.http.headers:DEBUG,org.apache.http.wire:DEBUG"
